@@ -15,7 +15,7 @@ const options = {
       {
         url: "http://localhost:5000",
         description: "Development"
-      }
+      },
       {
         url: "https://wacdo-lovat.vercel.app",
         description: "Production"
@@ -23,7 +23,7 @@ const options = {
       {
         url: "https://wacdo-render-test.onrender.com",
         description: "Production"
-      },
+      }
     ],
 
     components: {
