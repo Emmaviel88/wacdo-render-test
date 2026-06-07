@@ -17,13 +17,13 @@ const options = {
         description: "Development"
       },
       {
-        url: "https://wacdo-lovat.vercel.app",
+        url: "https://wacdo-render-test.onrender.com",
         description: "Production"
       },
       {
-        url: "https://wacdo-render-test.onrender.com",
+        url: "https://wacdo-lovat.vercel.app",
         description: "Production"
-      }
+      },
     ],
 
     components: {
