@@ -62,9 +62,9 @@ const router = express.Router();
  *                       format: float
  *                       description: initialisé à 0.0
  *       400: 
- *         description: Requête invalide, l'Id de l'employé connecté est requis pour la création de la commande
+ *         description: Requête invalide = l'Id de l'employé connecté est requis pour la création de la commande
  *       403:
- *         description: Erreur ! Accès refusé : l'utilisateur doit être connecté avec un rôle PREPARATION ou ADMIN pour créer une commande
+ *         description: Erreur ! Accès refusé = l'utilisateur doit être connecté avec un rôle PREPARATION ou ADMIN pour créer une commande
  *       404:
  *         description: Erreur ! Employé connecté non trouvé
  *       500:
