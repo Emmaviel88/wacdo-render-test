@@ -175,16 +175,6 @@ router.post('/', auth, createEmployee);
  *               properties:
  *                 message:
  *                   type: string
- *                   example: Employé non trouvé
- *       500:
- *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
  *                   example: Erreur lors de la connexion
  *                 error:
  *                  type: string
