@@ -168,6 +168,13 @@ router.post('/', auth, createOrder);
  *                             type: integer
  *                     total:
  *                       type: number
+ *                       format: float
+ *       400:
+ *         description: Requête invalide = statut de commande requis ou statut de commande non valide
+ *       403:
+ *         description: Erreur ! Accès refusé = l'utilisateur doit être connecté avec un rôle ADMIN, RECEPTION, PREPARATION ou DELIVERY pour mettre à jour le statut d'une commande
+ *       404:
+ *         description: Erreur ! Commande non trouvée ou employé connecté non trouvé
  *       500:
  *         description: Erreur serveur             
  */
