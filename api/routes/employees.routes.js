@@ -148,10 +148,46 @@ router.post('/', auth, createEmployee);
  *                   example: 2024-06-30T12:00:00.000Z
  *       400:
  *         description: Requête invalide, login ou mot de passe manquant
- *       401:
- *         description: Authentification échouée, login ou mot de passe incorrect
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Veuillez fournir un login et un mot de passe
+ *       404:
+ *         description: Employé non trouvé
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  example: Employé non trouvé
  *       500:
  *         description: Erreur serveur
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Employé non trouvé
+ *       500:
+ *         description: Erreur serveur
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Erreur lors de la connexion
+ *                 error:
+ *                  type: string
  */
 router.post('/login', loginEmployee);
 

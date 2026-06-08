@@ -96,7 +96,7 @@ exports.loginEmployee = async (req, res) => {
         // Cherche l'employé par son login dans la BDD
         const existingEmployee = await Employee.findOne({ login });
         if (!existingEmployee) {
-            return res.status(400).json({ message: 'employees.controller-L83 : Login ou mot de passe incorrect' });
+            return res.status(404).json({ message: 'employees.controller-L83 : Employé non trouvé' });
         }
         const isPwdOk = await bcrypt.compare(password, existingEmployee.password);
         if (!isPwdOk) {
