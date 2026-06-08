@@ -142,6 +142,10 @@ router.post('/', auth, createEmployee);
  *                 token:
  *                   type: string
  *                   example: eyJhbGciOiJIUzI1NiIsInR...
+ *                 expiresAt:
+ *                   type: string
+ *                   format: date-time
+ *                   example: 2024-06-30T12:00:00.000Z
  *       400:
  *         description: Requête invalide, login ou mot de passe manquant
  *       401:

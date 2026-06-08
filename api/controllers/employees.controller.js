@@ -104,9 +104,11 @@ exports.loginEmployee = async (req, res) => {
         }
         // Génère un token JWT (qui sera utilisé pour authentifier les requêtes ultérieures de l'employé connecté) avec comme payload l'id, le login et le rôle de l'employé, et une durée de validité de 24h
         const token = jwt.sign({ id: existingEmployee._id, login: existingEmployee.login, role: existingEmployee.role.toUpperCase() }, process.env.JWT_SECRET, { expiresIn: '24h' });
+        const expiracyDate = new Date(jwt.decode(token).exp * 1000); // Convertit la date d'expiration du token en millisecondes
+
         console.log(`employees.controller-L91 : L'employé ${existingEmployee.login.toUpperCase()} avec le rôle ${existingEmployee.role} est connecté avec succès !`);
         console.log(`employees.controller-L92 : JWT généré : ${token}`);
-        res.status(200).json({ message: 'Connexion réussie', token });
+        res.status(200).json({ message: 'Connexion réussie', token, expiresAt: expiracyDate });
     } catch (error) {
         console.error(error);
 
