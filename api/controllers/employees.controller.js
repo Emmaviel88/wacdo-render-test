@@ -31,7 +31,8 @@ exports.createEmployee = async (req, res) => {
             return res.status(409).json({ message: 'L\'employé existe déjà, création impossible !' });
         }
         
-        // Évolutions ultérieures : Ajouter une validation plus poussée des données (complexité du mot de passe)   
+        // Évolutions ultérieures : 
+        // Ajouter une validation plus poussée des données (complexité du mot de passe)   
         // Utiliser la lib password-validator
         /*
             Exemple d'utilisation de password-validator pour valider la complexité du mot de passe :
@@ -50,6 +51,18 @@ exports.createEmployee = async (req, res) => {
 
             console.log(schema.validate('Azerty123')); // resultat affiché => true
             console.log(schema.validate('azerty'));    // resultat affiché => false
+        */
+
+        /* Autre évolution pour éviter les attaques de type brute-force sur la route de login : 
+            Ajouter une limitation des requêtes dans un interval de temps pour éviter les attaques de type brute-force 
+            (ex: limiter à 5 tentatives de connexion infructueuses par heure pour un même login) en utilisant la lib express-rate-limit
+                const rateLimit = require('express-rate-limit');
+                const loginLimiter = rateLimit({
+                    windowMs: 60 * 60 * 1000, // 1 heure
+                    max: 5, // Limite à 5 requêtes par windowMs
+                    message: 'Trop de tentatives de connexion, veuillez réessayer dans une heure'
+                });
+                app.post('/api/employees/login', loginLimiter, employeesController.loginEmployee);
         */
 
         // Hash le mot de passe saisi pour ne pas l'envoyer en clair dans la BDD
