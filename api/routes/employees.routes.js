@@ -182,7 +182,6 @@ router.post('/', auth, createEmployee);
 router.post('/login', loginEmployee);
 
 // Route de modification d'un employé (protégée par le middleware d'authentification)
-
 /**
  * @swagger
  * /api/employees/edit/{id}:
@@ -214,8 +213,49 @@ router.post('/login', loginEmployee);
  *     responses:
  *       200:
  *         description: Modification réussie, retourne un objet avec les données de l'employé modifié
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 login:
+ *                   type: string
+ *                 role:
+ *                   type: string
+ *       403:
+ *         description: Accès refusé
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Accès refusé
+ *       404:
+ *         description: Employé non trouvé
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  example: Employé non trouvé
  *       500:
  *         description: Erreur serveur
+  *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  example: Erreur serveur lors de la modification de l'employé
+ *                error:
+ *                  type: string
  *
 */
 router.put('/edit/:id', auth, editEmployee);
@@ -237,8 +277,46 @@ router.put('/edit/:id', auth, editEmployee);
  *     responses:
  *       200:
  *         description: Suppression réussie
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Employé supprimé avec succès
+ *       403:
+ *         description: Accès refusé
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Accès refusé
+ *       404:
+ *         description: Employé non trouvé
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  example: Employé non trouvé
  *       500:
  *         description: Erreur serveur
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  example: Erreur serveur lors de la suppression de l'employé
+ *                error:
+ *                  type: string
  *
 */
 router.delete('/delete/:id', auth, deleteEmployee);
@@ -268,7 +346,16 @@ router.delete('/delete/:id', auth, deleteEmployee);
  *                    type: string
  *       500:
  *         description: Erreur serveur
- *
+ *         content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
+ *                  example: Erreur serveur lors de la liste des employés
+ *                error:
+ *                  type: string
 */
 router.get('/list', listEmployees);
 
