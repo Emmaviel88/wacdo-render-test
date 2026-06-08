@@ -62,7 +62,7 @@ const router = express.Router();
  *                       format: float
  *                       description: initialisé à 0.0
  *       400: 
- *         description: Requête invalide
+ *         description: Requête invalide, l'Id de l'employé connecté est requis pour la création de la commande
  *       403:
  *         description: Erreur ! Accès refusé
  *       404:
