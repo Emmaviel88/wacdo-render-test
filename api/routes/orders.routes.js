@@ -60,7 +60,13 @@ const router = express.Router();
  *                     price:
  *                       type: number
  *                       format: float
- *                       description: initialisé à 0.0 
+ *                       description: initialisé à 0.0
+ *       400: 
+ *         description: Requête invalide
+ *       403:
+ *         description: Erreur ! Accès refusé
+ *       404:
+ *         description: Erreur ! Employé connecté non trouvé
  *       500:
  *         description: Erreur serveur
  */
