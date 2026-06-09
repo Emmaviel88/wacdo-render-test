@@ -57,9 +57,10 @@ describe('POST /api/employees/', () => {
 
         expect(result.status).toBe(201);
         expect(result.status).toBe(201);
-        expect(result.body).toHaveProperty('savedEmployee');
-        expect(result.body.savedEmployee.login).toBe('Employee_07');
-        expect(result.body.savedEmployee.role).toBe('IDLE');
+        expect(result.body.login).toBe('Employee_07');
+        expect(result.body.message).toBe('Employé créé avec succès');
+        expect(result.body.password).toBe('**********');
+        expect(result.body.role).toBe('IDLE');
     })
 
 });
